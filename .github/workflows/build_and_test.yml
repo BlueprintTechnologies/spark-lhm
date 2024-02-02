@@ -618,11 +618,11 @@ jobs:
           docs-maven-
     - name: Free up disk space
       run: ./dev/free_disk_space_container
-    - name: Install Java 8
+    - name: Install Java 11
       uses: actions/setup-java@v3
       with:
         distribution: temurin
-        java-version: 8
+        java-version: 11
     - name: License test
       run: ./dev/check-license
     - name: Dependencies test
@@ -795,11 +795,11 @@ jobs:
         key: scala-213-coursier-${{ hashFiles('**/pom.xml', '**/plugins.sbt') }}
         restore-keys: |
           scala-213-coursier-
-    - name: Install Java 8
+    - name: Install Java 11
       uses: actions/setup-java@v3
       with:
         distribution: temurin
-        java-version: 8
+        java-version: 11
     - name: Build with SBT
       run: |
         ./dev/change-scala-version.sh 2.13
@@ -845,11 +845,11 @@ jobs:
         key: tpcds-coursier-${{ hashFiles('**/pom.xml', '**/plugins.sbt') }}
         restore-keys: |
           tpcds-coursier-
-    - name: Install Java 8
+    - name: Install Java 11
       uses: actions/setup-java@v3
       with:
         distribution: temurin
-        java-version: 8
+        java-version: 11
     - name: Cache TPC-DS generated data
       id: cache-tpcds-sf-1
       uses: actions/cache@v3
@@ -950,11 +950,11 @@ jobs:
         key: docker-integration-coursier-${{ hashFiles('**/pom.xml', '**/plugins.sbt') }}
         restore-keys: |
           docker-integration-coursier-
-    - name: Install Java 8
+    - name: Install Java 11
       uses: actions/setup-java@v3
       with:
         distribution: temurin
-        java-version: 8
+        java-version: 11
     - name: Run tests
       run: |
         ./dev/run-tests --parallelism 1 --modules docker-integration-tests --included-tags org.apache.spark.tags.DockerTest
