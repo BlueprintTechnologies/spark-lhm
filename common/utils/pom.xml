@@ -16,13 +16,12 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.apache.spark</groupId>
     <artifactId>spark-parent_2.12</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>3.5.0.1-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
 
@@ -110,13 +109,12 @@
               <target>
                 <condition property="shell" value="powershell.exe" else="bash">
                   <and>
-                    <os family="windows"/>
+                    <os family="windows" />
                   </and>
                 </condition>
-                <condition property="spark-build-info-script" value="spark-build-info.ps1"
-                           else="spark-build-info">
+                <condition property="spark-build-info-script" value="spark-build-info.ps1" else="spark-build-info">
                   <and>
-                    <os family="windows"/>
+                    <os family="windows" />
                   </and>
                 </condition>
                 <echo>Shell to use for generating spark-version-info.properties file =
@@ -135,9 +133,9 @@
               <!-- Execute the shell script to generate the spark build information. -->
               <target>
                 <exec executable="${shell}">
-                  <arg value="${project.basedir}/../../build/${spark-build-info-script}"/>
-                  <arg value="${project.build.directory}/extra-resources"/>
-                  <arg value="${project.version}"/>
+                  <arg value="${project.basedir}/../../build/${spark-build-info-script}" />
+                  <arg value="${project.build.directory}/extra-resources" />
+                  <arg value="${project.version}" />
                 </exec>
               </target>
             </configuration>

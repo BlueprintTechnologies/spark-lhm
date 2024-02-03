@@ -21,7 +21,7 @@
   <parent>
     <groupId>org.apache.spark</groupId>
     <artifactId>spark-parent_2.12</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>3.5.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -117,9 +117,9 @@
           </executions>
           <configuration>
             <target>
-              <delete file="${basedir}/../python/lib/pyspark.zip"/>
+              <delete file="${basedir}/../python/lib/pyspark.zip" />
               <zip destfile="${basedir}/../python/lib/pyspark.zip">
-                <fileset dir="${basedir}/../python/" includes="pyspark/**/*"/>
+                <fileset dir="${basedir}/../python/" includes="pyspark/**/*" />
               </zip>
             </target>
           </configuration>
