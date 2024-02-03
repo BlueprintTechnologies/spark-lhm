@@ -3482,8 +3482,24 @@
         </executions>
       </plugin>
     </plugins>
+    <extensions>
+      <extension>
+        <groupId>com.gkatzioura.maven.cloud</groupId>
+        <artifactId>azure-storage-wagon</artifactId>
+        <version>2.3</version>
+      </extension>
+    </extensions>
   </build>
-
+  <distributionManagement>
+    <snapshotRepository>
+      <id>bp-snapshot</id>
+      <url>bs://bpartifactstorage/maven-snapshot</url>
+    </snapshotRepository>
+    <repository>
+      <id>bp-release</id>
+      <url>bs://bpartifactstorage/maven-release</url>
+    </repository>
+  </distributionManagement>
   <profiles>
 
     <!--
