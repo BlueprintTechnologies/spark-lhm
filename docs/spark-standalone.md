@@ -529,7 +529,7 @@ The following is the response from the REST API for the above <code>create</code
 {
   "action" : "CreateSubmissionResponse",
   "message" : "Driver successfully submitted as driver-20231124153531-0000",
-  "serverSparkVersion" : "3.5.1",
+  "serverSparkVersion" : "3.5.0.1",
   "submissionId" : "driver-20231124153531-0000",
   "success" : true
 }
