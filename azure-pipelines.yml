@@ -10,6 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - task: CmdLine@2
+  - task: JavaToolInstaller@0
+    displayName: 'Use Java 17'
     inputs:
-      script: './build/mvn -Djava.version=17 -Dtarget=17 -Pscala-2.13 -DskipTests clean deploy -Drepository.url=$(repoUrl) -Drepository.username=$(repoUsername) -Drepository.password=$(repoPassword)'
+      versionSpec: 17
+      jdkArchitectureOption: x64
+      jdkSourceOption: PreInstalled
+  - task: CmdLine@2
+    displayName: 'Maven Build Spark'
+    inputs:
+      script: './build/mvn -Drepo.login=$(repoUsername) -Drepo.pwd=$(repoPassword) -Dtarget=17 -Djava.version=17  -Pscala-2.13 -DskipTests clean deploy --settings settings.xml'
